@@ -9,7 +9,7 @@ dependencies with [Composer](https://getcomposer.org/). Additionally dev contain
 
 There are two configurations available with different Docker configuration. For Codespaces `docker-in-docker` is prefered, `docker-outside-of-docker` is more suitable for local dev containers.
 
-> Note: Local dev container requires the rootCA.pem certificate to be added to the trust store of the host. Alternatively a symlink can be created for `.devcontainer/cert` if a shared certificate for the host is being used. On Codespaces, ddev router is disabled as a reverse proxy and HTTPS certificate is already being provded.
+> Note: Local dev container requires the `rootCA.pem` certificate under  `.devcontainer/cert` to be added to the trust store of the host. Alternatively an existing certificate can be copied from the host. On Codespaces, ddev router is disabled as a reverse proxy and HTTPS certificate is already being provded.
 
 To start the project, run:
 

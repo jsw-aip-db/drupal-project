@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/debian
 {
-	"name": "Drupal Starter Project",
+	"name": "Drupal Starter Project (docker-outside-docker)",
 	"image": "mcr.microsoft.com/devcontainers/php:1-8.2",
 	
 	//"build": {
@@ -37,7 +37,6 @@
 	"workspaceFolder": "${localWorkspaceFolder}",
 
 	"postCreateCommand": "bash .devcontainer/init-container.sh",
-
 
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},

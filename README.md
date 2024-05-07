@@ -3,7 +3,7 @@
 [![CI](https://github.com/phma4jsw/drupal-project/actions/workflows/ci.yml/badge.svg?branch=10.x)](https://github.com/phma4jsw/drupal-project/actions/workflows/ci.yml)
 
 This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/). Additionally dev container configuration has been added so Drupal can be run with DDev and Docker in a remote or dev container environment. Also, drush has been included.
+dependencies with [Composer](https://getcomposer.org/). Additionally dev container configuration has been added so Drupal can be run with DDev and Docker in a remote or dev container environment. Also, drush has been updated to the latest version.
 
 ## Usage (with Docker and dev containers)
 

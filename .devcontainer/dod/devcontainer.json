@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/debian
 {
-	"name": "Drupal Starter Project (docker-outside-docker)",
+	"name": "Drupal Starter Project (docker-outside-of-docker)",
 	"image": "mcr.microsoft.com/devcontainers/php:1-8.2",
 	
 	//"build": {
@@ -25,6 +25,21 @@
 		"source=${localEnv:HOME},target=/home/vscode,type=bind",
 		//"source=/mnt,target=/mnt,type=bind"
 	],
+
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				// Prevent VS Code's automatic port forwarding
+				"remote.autoForwardPorts": false,
+				"remote.restoreForwardedPorts": false,
+				"remote.forwardOnOpen": false,
+			},
+			"extensions": [],
+		}
+		
+
+	},
 
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],

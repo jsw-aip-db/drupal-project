@@ -1,12 +1,12 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 10 projects with Composer",
+    "name": "jsw-aip-db/drupal-project",
+    "description": "Project template for Drupal 10 projects with Composer and dev container",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "",
-            "role": ""
+            "name": "AIP Plus (JSW)",
+            "homepage": "https://www.aip.swiss"
         }
     ],
     "repositories": [

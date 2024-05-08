@@ -1,11 +1,28 @@
-# Composer template for Drupal projects
+# Composer template for Drupal projects with dev container
 
-[![CI](https://github.com/drupal-composer/drupal-project/actions/workflows/ci.yml/badge.svg?branch=10.x)](https://github.com/drupal-composer/drupal-project/actions/workflows/ci.yml)
+[![CI](https://github.com/phma4jsw/drupal-project/actions/workflows/ci.yml/badge.svg?branch=10.x)](https://github.com/phma4jsw/drupal-project/actions/workflows/ci.yml)
 
 This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+dependencies with [Composer](https://getcomposer.org/). Additionally dev container configuration has been added so Drupal can be run with DDev and Docker in a remote or dev container environment. Also, drush has been updated to the latest version.
 
-## Usage
+## Usage (with Docker and dev containers)
+
+There are two configurations available with different Docker configuration. For Codespaces `docker-in-docker` is prefered, `docker-outside-of-docker` is more suitable for local dev containers.
+
+> Note: Local dev container requires the `rootCA.pem` certificate under  `.devcontainer/cert` to be added to the trust store of the host. Alternatively an existing certificate can be copied from the host. On Codespaces, ddev router is disabled as a reverse proxy and HTTPS certificate is already being provded.
+
+To start the project, run:
+
+```
+ddev start
+```
+
+To install Drupal the first time, run:
+```
+ddev drush site:install
+```
+
+## Usage (manually, without Docker)
 
 First you need to [install Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 

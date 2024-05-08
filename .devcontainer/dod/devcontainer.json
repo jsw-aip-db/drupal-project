@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/debian
 {
-	"name": "Drupal Starter Project (docker-in-docker)",
+	"name": "Drupal Starter Project (docker-outside-of-docker)",
 	"image": "mcr.microsoft.com/devcontainers/php:1-8.2",
 	
 	//"build": {
@@ -20,7 +20,26 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
-	//"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+	"mounts": [ 
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=${localEnv:HOME},target=/home/vscode,type=bind",
+		//"source=/mnt,target=/mnt,type=bind"
+	],
+
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				// Prevent VS Code's automatic port forwarding
+				"remote.autoForwardPorts": false,
+				"remote.restoreForwardedPorts": false,
+				"remote.forwardOnOpen": false,
+			},
+			"extensions": [],
+		}
+		
+
+	},
 
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
@@ -28,13 +47,18 @@
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 
-	//"workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind",
-	//"workspaceFolder": "${localWorkspaceFolder}",
+	"containerEnv": {
+		"CAROOT": "/home/vscode/.local/share/mkcert",
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+
+	"workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}",
 
 	"postCreateCommand": "bash .devcontainer/init-container.sh",
 
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
 		"ghcr.io/ddev/ddev/install-ddev:latest": {}
 	}
 }
